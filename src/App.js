@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
+import SearchBar from './components/SearchBar';
+import ListView from './components/ListView';
+import {connect} from 'react-redux';
+import DetailView from './components/DetailView';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <div className="head">
+            <h1>YouTube Clone</h1>
+            <div className="search-bar">
+              <SearchBar />
+            </div>
+          </div>
+          <div className="App-content">
+            <div className="selected_video">
+              {this.props.ID ? <DetailView /> : 'Select any video !!!'}
+            </div>
+            <div className="video_list">
+              {this.props.videos['loading'] ? <ListView /> : 'Search something !!!'}
+            </div>
+          </div>
+        </header>
+      </div>
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return{
+    videos: state.videos,
+    ID: state.ID
+  } 
+}
+
+export default connect(mapStateToProps)(App);
