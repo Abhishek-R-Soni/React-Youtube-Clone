@@ -4,6 +4,14 @@ import {connect} from 'react-redux';
 
 class DetailView extends React.Component{
     
+    _onReady(event) {
+      // access to player in all event handlers via event.target
+      event.target.playVideo();
+      // event.target.mute();
+      event.target.setVolume(100);
+      console.log(event.target);
+    }
+
     render() {
         const opts = {
           height: '520',
@@ -16,11 +24,6 @@ class DetailView extends React.Component{
         console.log('Detail view');
         console.log(this.props)
         return <YouTube videoId={this.props.ID.ID} opts={opts} onReady={this._onReady} />;
-      }
-      
-      _onReady(event) {
-        // access to player in all event handlers via event.target
-        event.target.pauseVideo();
       }
 }
 
