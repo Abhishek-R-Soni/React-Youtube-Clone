@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import ListView from './components/ListView';
@@ -19,10 +18,10 @@ class App extends React.Component {
           </div>
           <div className="App-content">
             <div className="selected_video">
-              {this.props.ID ? <DetailView /> : 'Select any video !!!'}
+              {this.props.ID ? <DetailView /> : 'Select any video from List !'}
             </div>
             <div className="video_list">
-              {this.props.videos['loading'] ? <ListView /> : 'Search something !!!'}
+              {this.props.videos['loading'] ? <ListView /> : 'Search something !'}
             </div>
           </div>
         </header>

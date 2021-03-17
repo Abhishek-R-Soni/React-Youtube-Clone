@@ -4,7 +4,7 @@ const initialState = {
 };
 
 const Videos = (state = initialState, action) => {
-    // console.log(action);
+    console.log(action);
     switch(action.type){
         case 'CREATE_VIDEOS':
             return {

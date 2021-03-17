@@ -1,14 +1,9 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
-import DetailView from './DetailView';
 import {connect} from 'react-redux';
 import {getVideoID} from '../actions/index';
 import '../components/VideoItem.css';
 
 class VideoItem extends React.Component{
-    constructor(props){
-        super(props);
-    }
 
     handleClick = (videoId) => {
         console.log('Video ID : ' + videoId);
