@@ -4,11 +4,17 @@ import SearchBar from './components/SearchBar';
 import ListView from './components/ListView';
 import {connect} from 'react-redux';
 import DetailView from './components/DetailView';
+import {Helmet} from 'react-helmet';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
+         <Helmet>
+                <meta charSet="utf-8" />
+                <title> YouTube Clone </title>
+                <link rel="canonical" href="http://mysite.com/example" />
+          </Helmet>
         <header className="App-header">
           <div className="head">
             <h1>YouTube Clone</h1>
